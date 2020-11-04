@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+    th{color:red}
+}
+    </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Display Table</h2>
+
+
+  <table class="table table-dark table-hover">
+
+    <thead>
+      <tr>
+        <th>USERNAME</th>
+        <th>EMAIL</th>
+        <th>FIRSTNAME</th>
+          <th>LASTNAME</th>
+        <th>PASSWORD</th>
+        <th>CONFIRMPASSWORD</th>
+          <th>MOBILENO</th>
+
+      </tr>
+    </thead>
+    <tbody>
+
+
+          {% if form1 %}
+    {% for k in form1 %}
+    <tr>
+        <td>{{k.username}}</td>
+          <td>{{k.email}}</td>
+          <td>{{k.firstname}}</td>
+          <td>{{k.lastname}}</td>
+          <td>{{k.password}}</td>
+          <td>{{k.conpassword}}</td>
+          <td>{{k.mobno}}</td>
+      </tr>
+    {% endfor%}
+{% endif%}
+
+    </tbody>
+
+  </table>
+
+</div>
+
+</body>
+</html>

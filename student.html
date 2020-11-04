@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>FIRST_PROJECT</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+.first-info{
+    background-image: url( "{% static 'image7.jpeg' %}");
+    background-repeat: no-repeat;
+    background-size:cover;
+
+}
+.container{margin-top:200px;
+height:500px;
+}
+form{
+height:300px;
+width:50%;
+color:cyan;
+    background:rgba(0, 255, 0, 0.3);
+
+    text-shadow: 2px 2px 4px #000000;
+
+}
+
+
+
+  </style>
+</head>
+<body class ="first-info">
+
+
+<center>
+  <div class="container">
+
+
+  <form method="POST" action="">
+    <h1>Student form</h1>
+      {% csrf_token %}
+    <div class="form-group">
+      <label for="Name"><b>Name:</b></label>
+          {{form.name}}
+    </div>
+    <div class="form-group">
+      <label for="Email"><b>Email:</b></label>
+        {{form.emailid}}
+    </div>
+    <div class="form-group">
+      <label for ="contact"><b>contact</b></label>
+           {{form.contact}}
+    </div>
+    <button type="submit" class="btn btn-danger"><b>Submit</b></button>
+  </form>
+     <div>
+      {% for message in messages %}
+       <div class="alert alert-danger"><h1><b>{{message}}</b></h1></div>
+      {% endfor %}
+    </div>
+
+</div>
+</center>
+</body>
+</html>

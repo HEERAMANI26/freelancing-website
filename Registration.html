@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>Registration_form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+.first-info{
+    background-image: url( "{% static 'image11.jpeg' %}");
+    background-repeat: no-repeat;
+    background-size:cover;
+
+}
+.container{margin-top:100px;
+height:500px;
+}
+form{
+height:480px;
+width:80%;
+color:cyan;
+    background:rgba(0, 255, 0, 0.3);
+
+    text-shadow: 2px 2px 4px #000000;
+
+}
+
+
+
+  </style>
+</head>
+<body class ="first-info">
+
+
+<center>
+  <div class="container">
+      <div>
+      {% for message in messages %}
+       <div class="alert alert-warning"><h1><b>{{message}}</b></h1></div>
+      {% endfor %}
+    </div>
+
+
+  <form method="POST" action="">
+    <h1>Registration form</h1>
+      {% csrf_token %}
+    <div class="form-group">
+      <label for="Username"><b>Username:</b></label>
+          {{form1.username}}
+    </div>
+    <div class="form-group">
+      <label for="Email"><b>Email:</b></label>
+        {{form1.email}}
+    </div>
+    <div class="form-group">
+      <label for ="Firstname"><b>Firstname</b></label>
+           {{form1.firstname}}
+    </div>
+
+      <div class="form-group">
+      <label for ="Lastname"><b>Lastname</b></label>
+           {{form1.lastname}}
+    </div>
+      <div class="form-group">
+      <label for ="password"><b>password</b></label>
+           {{form1.password}}
+    </div>
+
+      <div class="form-group">
+      <label for ="conpassword"><b>confirmpassword</b></label>
+           {{form1.conpassword}}
+    </div>
+      <div class="form-group">
+      <label for ="mobileno"><b>mobileno</b></label>
+           {{form1.mobno}}
+    </div>
+    <button type="submit" class="btn btn-danger"><b>Submit</b></button>
+  </form>
+
+
+</div>
+</center>
+</body>
+</html>

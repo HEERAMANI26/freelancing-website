@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>Search</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .container{background-color:#955251;
+        color:cyan;}
+    </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>SEARCHING MEDICAL STORE NEAR YOU</h2>
+  <form method="POST" action="/search/">
+      {% csrf_token%}
+    <div class="form-group">
+      <label for="medicine_name">MEDICINE NAME:</label>
+      <input type="text" class="form-control" name='srh' placeholder="Enter Medicine  Name">
+    </div>
+
+      <label class="col-lg-2">
+          <button type="submit" class="btn btn-danger">search</button>
+      </label>
+  </form><br><br>
+     <div>
+      {% for message in messages %}
+       <div class="alert alert-danger"><h1><b>{{message}}</b></h1></div>
+      {% endfor %}
+    </div>
+<div class="container1">
+  <h2>Display Your Result</h2>
+
+
+  <table class="table table-success table-hover">
+
+    <thead>
+      <tr>
+        <strong><th>MEDICINE NAME</th>
+        <th>MEDICAL STORE NAME</th>
+        <th>ADDRESS</th>
+            <th>CONTACT</th>
+            <th>EMAIL</th>
+
+
+
+        </strong>
+
+      </tr>
+    </thead>
+    <tbody>
+
+
+          {% if sr %}
+    {% for k in sr %}
+    <tr>
+          <td>{{k.medicine_name}}</td>
+          <td>{{k.medicine_shop_name}}</td>
+          <td>{{k.address}}</td>
+          <td>{{k.contact}}</td>
+          <td>{{k.email}}</td>
+
+
+      </tr>
+    {% endfor%}
+{% endif%}
+
+    </tbody>
+
+  </table>
+
+</div>
+
+
+
+</div>
+</body>
+</html>
